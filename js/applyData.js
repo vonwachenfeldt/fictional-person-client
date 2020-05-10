@@ -1,6 +1,6 @@
 const xhr = new XMLHttpRequest;
 
-xhr.open("GET", "http://localhost:3000/api/person", true);
+xhr.open("GET", "https://david.cloudno.de/fictional-person/api/person", true);
 xhr.addEventListener("load", event => {
     const data = JSON.parse(xhr.responseText);
     window.data = data;
