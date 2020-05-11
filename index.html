@@ -12,8 +12,8 @@
 
 <body>
     <div class="container">
-        <div class="card">
-            <img id="imageHolder" src="https://www.pngitem.com/pimgs/m/391-3918613_personal-service-platform-person-icon-circle-png-transparent.png"
+        <div id="card" class="card">
+            <img id="imageHolder" src="./images/personimage.png"
                 alt="Avatar" style="width:100%">
             <div class="container">
                 <h4 id="nameHolder" class="name"><b>NAMN</b></h4>
@@ -24,7 +24,7 @@
                 <p id="hobbyHolder" class="info"><span class="darker">Hobby:</span></p>
             </div>
         </div>
-        <div class="extra">
+        <div id="extra" class="extra">
             <h1 class="subtitle">Anatomi</h1>
             <p id="genderHolder" class="info p2"><span class="darker">Kön:</span></p>
             <p id="heightHolder" class="info p2"><span class="darker">Längd:</span></p>
@@ -39,6 +39,7 @@
             <p id="residenceHolder" class="info p2"><span class="darker">Bostad:</span></p>
             <p id="vehicleHolder" class="info p2"><span class="darker">Fordon:</span></p>
         </div>
+        <button onclick=generate(); class="generate">Generera</button>
         <a class="link" href="https://github.com/vonwachenfeldt/fictional-person" target="_blank">Project on GitHub</a>
     </div>
     <script src="./js/applyData.js"></script>
