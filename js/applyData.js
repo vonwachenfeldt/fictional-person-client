@@ -34,6 +34,7 @@ function generate() {
         document.getElementById("hairColorHolder").innerHTML += " " + window.data.hair_color;
         document.getElementById("politicalPartyHolder").innerHTML += " " + window.data.political_party;
         document.getElementById("favoriteMealHolder").innerHTML += " " + window.data.favorite_meal;
+        document.getElementById("crimeHolder").innerHTML += " " + window.data.vehicle;
         document.getElementById("residenceHolder").innerHTML += " " + window.data.residence;
         document.getElementById("vehicleHolder").innerHTML += " " + window.data.vehicle;
 
