@@ -56,6 +56,10 @@ function generate(seed = "") {
 // url as seed
 generate(window.location.hash.slice(1));
 
+window.onhashchange = function () {
+    generate(window.location.hash.slice(1));
+}
+
 function fallbackCopyTextToClipboard(text) {
     var textArea = document.createElement("textarea");
     textArea.value = text;
