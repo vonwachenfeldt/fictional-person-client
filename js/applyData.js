@@ -1,6 +1,7 @@
 const xhr = new XMLHttpRequest;
 const oldExtra = document.getElementById("extra").innerHTML;
 const oldCard = document.getElementById("card").innerHTML;
+const domain = "https://david.cloudno.de/fictional-person"
 
 let person;
 
@@ -41,6 +42,7 @@ function generate() {
         document.getElementById("crimeHolder").innerHTML += " " + person.crime;
         document.getElementById("residenceHolder").innerHTML += " " + person.residence;
         document.getElementById("vehicleHolder").innerHTML += " " + person.vehicle;
+        document.getElementById("animalHolder").innerHTML += " " + person.favoriteAnimal;
 
     });
 
@@ -86,5 +88,5 @@ function copyTextToClipboard(text) {
 }
 
 function copyPerson() {
-    copyTextToClipboard(person.seed);
+    copyTextToClipboard("https://person.cf/#" + person.seed);
 }
