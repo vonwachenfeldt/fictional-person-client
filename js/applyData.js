@@ -10,7 +10,7 @@ function capitalize(string) {
 }
 
 function generate() {
-    xhr.open("GET", domain + "/api/person?seed=" + window.location.hash.slice(1, true));
+    xhr.open("GET", domain + "/api/person?seed=" + window.location.hash.slice(1), true);
     xhr.addEventListener("load", event => {
         person = JSON.parse(xhr.responseText);
 
