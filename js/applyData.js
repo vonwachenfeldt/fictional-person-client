@@ -9,8 +9,8 @@ function capitalize(string) {
     return string[0].toUpperCase() + string.slice(1);
 }
 
-function generate() {
-    xhr.open("GET", domain + "/api/person?seed=" + window.location.hash.slice(1), true);
+function generate(seed) {
+    xhr.open("GET", domain + "/api/person?seed=" + seed, true);
     xhr.addEventListener("load", event => {
         person = JSON.parse(xhr.responseText);
 
@@ -50,7 +50,8 @@ function generate() {
 
 }
 
-generate();
+// url as seed
+generate(window.location.hash.slice(1));
 
 function fallbackCopyTextToClipboard(text) {
     var textArea = document.createElement("textarea");
