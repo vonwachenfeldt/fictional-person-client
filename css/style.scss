@@ -33,6 +33,7 @@ img
     border-style: none;
     float: left;
     margin: 3rem;
+    margin-bottom: 1rem;
     margin-left: 0rem;
     margin-top: 1rem;
 
@@ -88,7 +89,6 @@ img
     margin-top: 0;
     padding: 0.25em;
     padding-top: 0;
-    text-transform: capitalize;
 }
 
 .name
@@ -132,6 +132,11 @@ img
     padding-top: 0;
 }
 
+.share 
+{
+    width: 265px;
+}
+
 //Largest on the top
 
 @media only screen and (max-width: 1000px) {
@@ -152,9 +157,26 @@ img
         width: 100%;
     }
 
+    .extra
+    {
+        width: 100%;
+    }
+
+    .subtitle
+    {
+        margin-left: 1rem;
+    }
+
+    .info
+    {
+        margin-left: 1rem;
+    }
+
     .generate
     {
-        margin: 4rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
     }
 }
 
