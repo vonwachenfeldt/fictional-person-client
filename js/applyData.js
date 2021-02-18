@@ -1,7 +1,7 @@
 const xhr = new XMLHttpRequest;
 const oldExtra = document.getElementById("extra").innerHTML;
 const oldCard = document.getElementById("card").innerHTML;
-const domain = "https://david.cloudno.de/fictional-person"
+const domain = (location.hostname == "127.0.0.1" ? "http://localhost:5000" : "https://david.cloudno.de/fictional-person");
 
 let person;
 
@@ -42,6 +42,7 @@ function generate(seed = "") {
         document.getElementById("politicalPartyHolder").innerHTML += " " + person.politicalParty;
         document.getElementById("favoriteMealHolder").innerHTML += " " + person.favoriteMeal;
         document.getElementById("crimeHolder").innerHTML += " " + person.crime;
+        document.getElementById("personalityTraitHolder").innerHTML += " " + person.personalityTrait;
         document.getElementById("residenceHolder").innerHTML += " " + person.residence;
         document.getElementById("vehicleHolder").innerHTML += " " + person.vehicle;
         document.getElementById("animalHolder").innerHTML += " " + person.favoriteAnimal;
