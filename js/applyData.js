@@ -31,7 +31,7 @@ function generate() {
         document.getElementById("locationHolder").innerHTML += " " + person.location.municipality + ", " + person.location.urbanArea;
         document.getElementById("adressHolder").innerHTML += " " + person.adress;
         document.getElementById("hobbyHolder").innerHTML += " " + person.hobby;
-        document.getElementById("genderHolder").innerHTML += " " + person.gender ? capitalize(person.gender) : "Sekretessbelagt";
+        document.getElementById("genderHolder").innerHTML += " " + (person.gender ? capitalize(person.gender) : "Sekretessbelagt");
         document.getElementById("heightHolder").innerHTML += " " + person.height.heightFormatted;
         document.getElementById("weightHolder").innerHTML += " " + person.weight.weightFormatted;
         document.getElementById("BMIHolder").innerHTML += " " + person.bmi;
