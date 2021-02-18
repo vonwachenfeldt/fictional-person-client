@@ -2,8 +2,6 @@ const xhr = new XMLHttpRequest;
 const oldExtra = document.getElementById("extra").innerHTML;
 const oldCard = document.getElementById("card").innerHTML;
 
-const domain = "http://localhost:5000"
-
 let person;
 
 function capitalize(string) {
@@ -11,7 +9,7 @@ function capitalize(string) {
 }
 
 function generate() {
-    xhr.open("GET", domain + "/api/person?seed=" + window.location.hash.slice(1), true);
+    xhr.open("GET", domain + "/api/person?seed=" + window.location.hash.slice(1, true));
     xhr.addEventListener("load", event => {
         person = JSON.parse(xhr.responseText);
 
