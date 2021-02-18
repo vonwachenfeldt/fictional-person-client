@@ -9,11 +9,14 @@ function capitalize(string) {
     return string[0].toUpperCase() + string.slice(1);
 }
 
+let updatedHash = false;
+
 function generate(seed = "") {
     xhr.open("GET", domain + "/api/person?seed=" + seed, true);
     xhr.addEventListener("load", event => {
         person = JSON.parse(xhr.responseText);
 
+        updatedHash = true;
         window.location.hash = person.seed;
 
         if (person.age < 18) {
@@ -57,7 +60,10 @@ function generate(seed = "") {
 generate(window.location.hash.slice(1));
 
 window.onhashchange = function () {
-    generate(window.location.hash.slice(1));
+    if (!updatedHash) 
+        generate(window.location.hash.slice(1));
+    
+    updatedHash = false;
 }
 
 function fallbackCopyTextToClipboard(text) {
