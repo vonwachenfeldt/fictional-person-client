@@ -9,10 +9,12 @@ function capitalize(string) {
     return string[0].toUpperCase() + string.slice(1);
 }
 
-function generate(seed) {
+function generate(seed = "") {
     xhr.open("GET", domain + "/api/person?seed=" + seed, true);
     xhr.addEventListener("load", event => {
         person = JSON.parse(xhr.responseText);
+
+        window.location.hash = person.seed;
 
         if (person.age < 18) {
             person.profession = "Skolelev";
