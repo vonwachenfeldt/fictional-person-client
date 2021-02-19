@@ -17,12 +17,12 @@ function generate(seed = "") {
         updatedHash = true;
         window.location.hash = person.seed;
 
-        if (person.age < 18) {
-            person.profession = "Skolelev";
+        if (person.name.ethnicity == "white") {
+            document.getElementById("ethnicityHolder").innerHTML += "Svensk";
+        }else{
+            document.getElementById("ethnicityHolder").innerHTML += "Utländsk";
         }
-        if (person.age < 19) {
-            person.political_party = "Politiskt okunnig"
-        }
+
 
         document.getElementById("extra").innerHTML = oldExtra;
         document.getElementById("card").innerHTML = oldCard;
@@ -30,7 +30,6 @@ function generate(seed = "") {
         document.getElementById("imageHolder").src = person.imageUrl;
         document.getElementById("nameHolder").innerHTML = " " + person.name.firstname + " " + person.name.surname;
         document.getElementById("ageHolder").innerHTML += " " + person.age;
-        document.getElementById("ethnicityHolder").innerHTML += " " + person.ethnicity;
         document.getElementById("professionHolder").innerHTML += " " + person.profession;
         document.getElementById("locationHolder").innerHTML += " " + person.location.municipality + ", " + person.location.urbanArea;
         document.getElementById("adressHolder").innerHTML += " " + person.adress;
