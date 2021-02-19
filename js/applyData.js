@@ -30,6 +30,7 @@ function generate(seed = "") {
         document.getElementById("imageHolder").src = person.imageUrl;
         document.getElementById("nameHolder").innerHTML = " " + person.name.firstname + " " + person.name.surname;
         document.getElementById("ageHolder").innerHTML += " " + person.age;
+        document.getElementById("ethnicityHolder").innerHTML += " " + person.ethnicity;
         document.getElementById("professionHolder").innerHTML += " " + person.profession;
         document.getElementById("locationHolder").innerHTML += " " + person.location.municipality + ", " + person.location.urbanArea;
         document.getElementById("adressHolder").innerHTML += " " + person.adress;
