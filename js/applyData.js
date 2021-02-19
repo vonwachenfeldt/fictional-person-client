@@ -45,6 +45,7 @@ function generate(seed = "") {
         document.getElementById("favoriteMealHolder").innerHTML += " " + person.favoriteMeal;
         document.getElementById("crimeHolder").innerHTML += " " + person.crime;
         document.getElementById("personalityTraitHolder").innerHTML += " " + person.personalityTrait;
+        document.getElementById("organizationHolder").innerHTML += " " + person.organization;
         document.getElementById("residenceHolder").innerHTML += " " + person.residence;
         document.getElementById("vehicleHolder").innerHTML += " " + person.vehicle;
         document.getElementById("animalHolder").innerHTML += " " + person.favoriteAnimal;
