@@ -17,13 +17,7 @@ function generate(seed = "") {
         updatedHash = true;
         window.location.hash = person.seed;
 
-        if (person.name.ethnicity == "white") {
-            document.getElementById("ethnicityHolder").innerHTML += "Svensk";
-        }else{
-            document.getElementById("ethnicityHolder").innerHTML += "Utländsk";
-        }
-
-
+        
         document.getElementById("extra").innerHTML = oldExtra;
         document.getElementById("card").innerHTML = oldCard;
 
@@ -50,6 +44,20 @@ function generate(seed = "") {
         document.getElementById("vehicleHolder").innerHTML += " " + person.vehicle;
         document.getElementById("animalHolder").innerHTML += " " + person.favoriteAnimal;
 
+        if (person.name.ethnicity == "other") {
+            document.getElementById("ethnicityHolder").innerHTML += " Utländsk";
+        }else{
+            document.getElementById("ethnicityHolder").innerHTML += " Svensk";
+        }
+        
+        if(person.age < 18) {
+            document.getElementById("professionHolder").innerHTML += " Skolelev";
+            if(person.gender == "man") {
+                document.getElementById("genderHolder").innerHTML += " Pojke";
+            }else if(person.gender == "kvinna") {
+                document.getElementById("genderHolder").innerHTML += " Flicka";
+            }
+        }
     });
 
     xhr.send();
