@@ -24,7 +24,6 @@ function generate(seed = "") {
         document.getElementById("imageHolder").src = person.imageUrl;
         document.getElementById("nameHolder").innerHTML = " " + person.name.firstname + " " + person.name.surname;
         document.getElementById("ageHolder").innerHTML += " " + person.age;
-        document.getElementById("professionHolder").innerHTML += " " + person.profession;
         document.getElementById("locationHolder").innerHTML += " " + person.location.municipality + ", " + person.location.urbanArea;
         document.getElementById("adressHolder").innerHTML += " " + person.adress;
         document.getElementById("hobbyHolder").innerHTML += " " + person.hobby;
@@ -57,6 +56,8 @@ function generate(seed = "") {
             }else if(person.gender == "kvinna") {
                 document.getElementById("genderHolder").innerHTML += " Flicka";
             }
+        }else{
+            document.getElementById("professionHolder").innerHTML += " " + person.profession;
         }
     });
 
