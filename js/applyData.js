@@ -9,8 +9,6 @@ function capitalize(string) {
     return string[0].toUpperCase() + string.slice(1);
 }
 
-let updatedHash = false;
-
 function generate(seed = "") {
     xhr.open("GET", domain + "/api/person?seed=" + seed, true);
     xhr.addEventListener("load", event => {
@@ -42,6 +40,7 @@ function generate(seed = "") {
         document.getElementById("BMIHolder").innerHTML += " " + person.bmi;
         document.getElementById("eyeColorHolder").innerHTML += " " + (person.eyeColor ? capitalize(person.eyeColor) : "Sekretessbelagt");
         document.getElementById("hairColorHolder").innerHTML += " " + (person.hairColor ? capitalize(person.hairColor) : "Sekretessbelagt");
+        document.getElementById("diseaseHolder").innerHTML += " " + person.disease;
         document.getElementById("politicalPartyHolder").innerHTML += " " + person.politicalParty;
         document.getElementById("favoriteMealHolder").innerHTML += " " + person.favoriteMeal;
         document.getElementById("crimeHolder").innerHTML += " " + person.crime;
@@ -60,10 +59,10 @@ function generate(seed = "") {
 generate(window.location.hash.slice(1));
 
 window.onhashchange = function () {
-    if (!updatedHash) 
-        generate(window.location.hash.slice(1));
-    
-    updatedHash = false;
+    const hash = window.location.hash.slice(1);
+
+    if (hash != person.seed) 
+        generate(hash);
 }
 
 function fallbackCopyTextToClipboard(text) {
