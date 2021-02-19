@@ -27,7 +27,6 @@ function generate(seed = "") {
         document.getElementById("locationHolder").innerHTML += " " + person.location.municipality + ", " + person.location.urbanArea;
         document.getElementById("adressHolder").innerHTML += " " + person.adress;
         document.getElementById("hobbyHolder").innerHTML += " " + person.hobby;
-        document.getElementById("genderHolder").innerHTML += " " + (person.gender ? capitalize(person.gender) : "Sekretessbelagt");
         document.getElementById("heightHolder").innerHTML += " " + person.height.heightFormatted;
         document.getElementById("weightHolder").innerHTML += " " + person.weight.weightFormatted;
         document.getElementById("BMIHolder").innerHTML += " " + person.bmi;
@@ -58,6 +57,7 @@ function generate(seed = "") {
             }
         }else{
             document.getElementById("professionHolder").innerHTML += " " + person.profession;
+            document.getElementById("genderHolder").innerHTML += " " + (person.gender ? capitalize(person.gender) : "Sekretessbelagt");
         }
     });
 
