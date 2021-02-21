@@ -16,20 +16,13 @@ function generate(seed = "") {
 
         window.location.hash = person.seed;
 
-        if (person.age < 18) {
-            person.profession = "Skolelev";
-        }
-        if (person.age < 19) {
-            person.political_party = "Politiskt okunnig"
-        }
-
+        
         document.getElementById("extra").innerHTML = oldExtra;
         document.getElementById("card").innerHTML = oldCard;
 
         document.getElementById("imageHolder").src = person.imageUrl;
         document.getElementById("nameHolder").innerHTML = " " + person.name.firstname + " " + person.name.surname;
         document.getElementById("ageHolder").innerHTML += " " + person.age;
-        document.getElementById("professionHolder").innerHTML += " " + person.profession;
         document.getElementById("locationHolder").innerHTML += " " + person.location.municipality + ", " + person.location.urbanArea;
         document.getElementById("adressHolder").innerHTML += " " + person.adress;
         document.getElementById("hobbyHolder").innerHTML += " " + person.hobby;
@@ -44,10 +37,27 @@ function generate(seed = "") {
         document.getElementById("favoriteMealHolder").innerHTML += " " + person.favoriteMeal;
         document.getElementById("crimeHolder").innerHTML += " " + person.crime;
         document.getElementById("personalityTraitHolder").innerHTML += " " + person.personalityTrait;
+        document.getElementById("organizationHolder").innerHTML += " " + person.organization;
         document.getElementById("residenceHolder").innerHTML += " " + person.residence;
         document.getElementById("vehicleHolder").innerHTML += " " + person.vehicle;
         document.getElementById("animalHolder").innerHTML += " " + person.favoriteAnimal;
 
+        if (person.name.ethnicity == "other") {
+            document.getElementById("ethnicityHolder").innerHTML += " Utländsk";
+        }else{
+            document.getElementById("ethnicityHolder").innerHTML += " Svensk";
+        }
+        
+        if(person.age < 18) {
+            document.getElementById("professionHolder").innerHTML += " Skolelev";
+            if(person.gender == "man") {
+                document.getElementById("genderHolder").innerHTML += " Pojke";
+            }else if(person.gender == "kvinna") {
+                document.getElementById("genderHolder").innerHTML += " Flicka";
+            }
+        }else{
+            document.getElementById("professionHolder").innerHTML += " " + person.profession;
+        }
     });
 
     xhr.send();
