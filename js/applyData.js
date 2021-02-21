@@ -14,7 +14,6 @@ function generate(seed = "") {
     xhr.addEventListener("load", event => {
         person = JSON.parse(xhr.responseText);
 
-        updatedHash = true;
         window.location.hash = person.seed;
 
         
@@ -56,6 +55,8 @@ function generate(seed = "") {
                 document.getElementById("genderHolder").innerHTML += " Flicka";
             }
         }else{
+            document.getElementById("genderHolder").innerHTML += " " + (person.gender ? capitalize(person.gender) : "Sekretessbelagt");
+            
             document.getElementById("professionHolder").innerHTML += " " + person.profession;
             document.getElementById("genderHolder").innerHTML += " " + (person.gender ? capitalize(person.gender) : "Sekretessbelagt");
         }
