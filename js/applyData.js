@@ -14,7 +14,6 @@ function generate(seed = "") {
     xhr.addEventListener("load", event => {
         person = JSON.parse(xhr.responseText);
 
-        updatedHash = true;
         window.location.hash = person.seed;
 
         if (person.age < 18) {
