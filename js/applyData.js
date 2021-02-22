@@ -1,21 +1,28 @@
-const xhr = new XMLHttpRequest;
 const oldExtra = document.getElementById("extra").innerHTML;
 const oldCard = document.getElementById("card").innerHTML;
 const domain = (location.hostname == "127.0.0.1" ? "http://localhost:5000" : "https://david.cloudno.de/fictional-person");
 
-let person;
+var serverRendered = window.serverRendered;
+var person = window.person;
 
 function capitalize(string) {
     return string[0].toUpperCase() + string.slice(1);
 }
 
-function generate(seed = "") {
+function generate(seed = "", options = { updateUrl: true }) {
+    const xhr = new XMLHttpRequest();
     xhr.open("GET", domain + "/api/person?seed=" + seed, true);
     xhr.addEventListener("load", event => {
         person = JSON.parse(xhr.responseText);
 
-        window.location.hash = person.seed;
-
+        if (options.updateUrl) {
+            if (!window.serverRendered) {
+                window.location.hash = person.seed;
+            } else {
+                console.log("Push history", person.seed);
+                window.history.pushState(null, "", `/${person.seed}`); 
+            }   
+        }
         
         document.getElementById("extra").innerHTML = oldExtra;
         document.getElementById("card").innerHTML = oldCard;
@@ -64,14 +71,40 @@ function generate(seed = "") {
 
 }
 
-// url as seed
-generate(window.location.hash.slice(1));
+function getSeedFromUrl(url = window.location.href) {
+    // use url path for seed if server rendered, otherwise use hash
+    if (serverRendered)
+        // https://person.cf/seed
+        return new URL(url).pathname.replace("/", "");
+    else
+        // https://person.cf#seed
+        return url.slice(url.indexOf("#") + 1)
+}
+
+window.onpopstate = function () {
+    const seed = getSeedFromUrl();
+
+    console.log("Pop history", seed);
+
+    generate(seed, { updateUrl: false });
+}
+
+// create person when page loads if not server renderd
+if (!window.serverRendered) 
+    generate(getSeedFromUrl());
+else
+    // set the url to the person
+    window.history.replaceState(null, "", person.seed);
 
 window.onhashchange = function () {
-    const hash = window.location.hash.slice(1);
+    const hash = getSeedFromUrl(); // will return hash
 
     if (hash != person.seed) 
         generate(hash);
+}
+
+function generateButtonClick() {
+    generate();
 }
 
 function fallbackCopyTextToClipboard(text) {
