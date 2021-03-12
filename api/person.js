@@ -63,7 +63,7 @@ module.exports = async (req, res) => {
     Favoritmaträtt: ${person.favoriteMeal}`;
 
     const html =
-    `<!DOCTYPE html prefix="og: https://ogp.me/ns#">>
+    `<!DOCTYPE html prefix="og: https://ogp.me/ns#">
     <html lang="en">
     
     <head>
@@ -106,34 +106,34 @@ module.exports = async (req, res) => {
                 <img id="imageHolder" src="${person.imageUrl}"
                     alt="Avatar" style="width:100%">
                 <div class="container">
-                    <h4 id="nameHolder" class="name"><b>${name}</b></h4>
-                    <p id="ageHolder" class="info"><span class="darker">Ålder:</span> ${person.age}</p>
-                    <p id="ethnicityHolder" class="info"><span class="darker">Etnicitet:</span> ${ethnicity}</p>
-                    <p id="professionHolder" class="info"><span class="darker">Yrke:</span> ${profession}<span></span></p>
-                    <p id="locationHolder" class="info"><span class="darker">Tätort:</span> ${location}</p>
-                    <p id="adressHolder" class="info"><span class="darker">Adress:</span> ${person.adress}</p>
-                    <p id="hobbyHolder" class="info"><span class="darker">Hobby:</span> ${person.hobby}</p>
+                    <h4 class="name"><b><span id="nameHolder" >${name}</span></b></h4>
+                    <p class="info"><span class="darker">Ålder:</span> <span  id="ageHolder">${person.age}</span></p>
+                    <p class="info"><span class="darker">Etnicitet:</span> <span id="ethnicityHolder">${ethnicity}</span></p>
+                    <p class="info"><span class="darker">Yrke:</span> <span id="professionHolder">${profession}</span></p>
+                    <p class="info"><span class="darker">Tätort:</span> <span id="locationHolder">${location}</span></p>
+                    <p class="info"><span class="darker">Adress:</span> <span id="adressHolder">${person.adress}</span></p>
+                    <p class="info"><span class="darker">Hobby:</span> <span id="hobbyHolder">${person.hobby}</span></p>
                 </div>
             </div>
             <div id="extra" class="extra">
                 <h1 class="subtitle">Anatomi</h1>
-                <p id="genderHolder" class="info p2"><span class="darker">Kön:</span> ${gender}</p>
-                <p id="heightHolder" class="info p2"><span class="darker">Längd:</span> ${person.height.heightFormatted}</p>
-                <p id="weightHolder" class="info p2"><span class="darker">Vikt:</span> ${person.weight.weightFormatted}</p>
-                <p id="BMIHolder" class="info p2"><span class="darker">BMI:</span> ${person.bmi}</p>
-                <p id="eyeColorHolder" class="info p2"><span class="darker">Ögonfärg:</span> ${eyeColor}</p>
-                <p id="hairColorHolder" class="info p2"><span class="darker">Hårfärg:</span> ${hairColor}</p>
-                <p id="diseaseHolder" class="info p2"><span class="darker">Sjukdom:</span> ${person.disease}</p>
+                <p class="info p2"><span class="darker">Kön:</span> <span id="genderHolder">${gender}</span></p>
+                <p class="info p2"><span class="darker">Längd:</span> <span id="heightHolder">${person.height.heightFormatted}</span></p>
+                <p class="info p2"><span class="darker">Vikt:</span> <span id="weightHolder">${person.weight.weightFormatted}</span></p>
+                <p class="info p2"><span class="darker">BMI:</span> <span id="BMIHolder">${person.bmi}</span></p>
+                <p class="info p2"><span class="darker">Ögonfärg:</span> <span id="eyeColorHolder">${eyeColor}</span></p>
+                <p class="info p2"><span class="darker">Hårfärg:</span> <span id="hairColorHolder">${hairColor}</span></p>
+                <p class="info p2"><span class="darker">Sjukdom:</span> <span id="diseaseHolder">${person.disease}</span></p>
                 <h1 class="subtitle">Övrigt</h1>
-                <p id="politicalPartyHolder" class="info p2"><span class="darker">Politiskt parti:</span> ${person.politicalParty}</p>
-                <p id="favoriteMealHolder" class="info p2"><span class="darker">Favoritmaträtt:</span> ${person.favoriteMeal}</p>
-                <p id="crimeHolder" class="info p2"><span class="darker">Belastningsregistret:</span> ${person.crime}</p>
-                <p id="personalityTraitHolder" class="info p2"><span class="darker">Personlighetsdrag:</span>${person.personalityTrait}</p>
-                <p id="organizationHolder" class="info p2"><span class="darker">Medlem i:</span> ${person.organization}</p>
+                <p class="info p2"><span class="darker">Politiskt parti:</span> <span id="politicalPartyHolder">${person.politicalParty}</span></p>
+                <p class="info p2"><span class="darker">Favoritmaträtt:</span> <span id="favoriteMealHolder">${person.favoriteMeal}</span></p>
+                <p class="info p2"><span class="darker">Belastningsregistret:</span> <span id="crimeHolder">${person.crime}</span></p>
+                <p class="info p2"><span class="darker">Personlighetsdrag:</span> <span id="personalityTraitHolder">${person.personalityTrait}</span></p>
+                <p class="info p2"><span class="darker">Medlem i:</span> <span id="organizationHolder">${person.organization}</span></p>
                 <h1 class="subtitle">Egendom</h1>
-                <p id="residenceHolder" class="info p2"><span class="darker">Bostad:</span> ${person.residence}</p>
-                <p id="vehicleHolder" class="info p2"><span class="darker">Fordon:</span> ${person.vehicle}</p>
-                <p id="animalHolder" class="info p2"><span class="darker">Husdjur:</span> ${person.favoriteAnimal}</p>
+                <p class="info p2"><span class="darker">Bostad:</span> <span id="residenceHolder">${person.residence}</span></p>
+                <p class="info p2"><span class="darker">Fordon:</span> <span id="vehicleHolder">${person.vehicle}</span></p>
+                <p class="info p2"><span class="darker">Husdjur:</span> <span id="animalHolder">${person.favoriteAnimal}</span></p>
             </div>
             <div>
                 <button onclick=generateButtonClick(); class="generate">Generera</button>
